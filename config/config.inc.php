@@ -26,3 +26,5 @@ const APP_VERSION = "2023.04.05";
 
 $dir =  "http://localhost/escolaws/" ;
 
+//Alteração feita apenas para teste...
+
