@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h4>Módulo Disciplinas</h4>
+    <p>Agora usando a convenção modular...</p>
+
+    
+    <ul class="d-flex flex-row gap-2">
+        
+        <?php foreach($menu_disciplinas as $menu=>$link ){ ?>
+            
+            <li class="list-group-item"><a class="btn btn-block btn-danger" href="<?=$link?>"><?=$menu?></a></li>
+            
+        <?php } ?>
+        
+    </ul>
+   
+   
+        <img src="<?=$dir?>/img/disciplinas.png">
+</div>

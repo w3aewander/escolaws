@@ -1,0 +1,42 @@
+<div class="container">
+
+    <h4>Módulo cursos</h4>
+
+    <div class="d-flex flex-row gap-1 py-2">
+
+        <?php foreach($menu_cursos as $menu ){ ?>
+            
+            <div class="list-group-item"><a class="btn btn-block btn-danger" href="<?=$menu['link']?>"><?=$menu['icone']?></a></div>
+            
+        <?php } ?>
+    </div>
+
+    <table class="table table-hover table-striped">
+    
+       <thead>
+          <tr>
+             <th align="start">Código</th>
+             <th align="start">Nome</th> 
+             <th align="start">Operações</th>       
+          </tr>
+       </thead>
+      
+       <tbody>
+            <?php
+            foreach ($cursos as $curso) {
+                $codigo = $curso[0];
+                echo "<tr>";
+                echo "<td align='start'> $codigo</td>";
+                echo "<td align='start'>".$curso[1]."</td>";
+                
+                echo "<td align='start'>
+                        <a href='editar.php?codigo=$codigo' class='btn btn-info btn-sm'><i class='fa fa-edit fa-fw'></i> Editar </a> 
+                        <a href='excluir.php?codigo=$codigo' class='btn btn-danger btn-sm'><i class='fa fa-trash fa-fw'></i>  Excluir </a> 
+                      </td>";
+                echo "</tr>";
+            }
+           ?>   
+       </tbody>
+    
+    </table>
+</div>

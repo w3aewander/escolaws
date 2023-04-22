@@ -1,0 +1,21 @@
+
+<form id="form-incluir-curso" name="form-incluir-curso" action="#" method="POST">
+  
+    <div class="form-group">
+      <label for="codigo">Código</label>
+      <input class="form-control" type="number" id="codigo" name="codigo" value="<?=$curso[0] ?? '0' ?>" required="required">
+    </div>
+
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input class="form-control" type="text" id="nome" name="nome"  value="<?=$curso[1] ?? ''?>" required="required">
+    </div>
+
+    <div class="my-2">
+        <button type="submit" class="btn btn-primary"> Salvar </button>
+        <button type="reset" class="btn btn-warning"> Cancelar </button>
+    </div>
+  </form>
+
+  
+  </div>

@@ -1,0 +1,43 @@
+
+<form id="form-incluir-aluno" name="form-incluir-aluno" action="#" method="POST">
+  
+    <div class="form-group">
+      <label for="matricula">Matrícula</label>
+      <input class="form-control" type="number" id="matricula" name="matricula" value="<?=$aluno['matricula'] ?? '0' ?>" required="required">
+    </div>
+
+    <div class="form-group">
+      <label for="curso">Curso</label>
+      <select class="form-control" name="curso" id="curso">
+        <option selected value="">Selecione um curso...</option>
+        <!-- preenche com os dados do curso -->
+        <?php foreach ($cursos as $curso){ ?>
+          <!-- <input class="form-control" type="text" id="curso" name="curso"  value="<?=$aluno['curso'] ?? ''?>" required="required"> -->
+          
+          <option value="<?=$nome?>"> 
+              <?php echo $curso[0] . "-" . $curso[1]; ?>
+          </option>
+
+        <?php } ?>
+      
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input class="form-control" type="text" id="nome" name="nome"  value="<?=$aluno['nome'] ?? '' ?>" required="required">
+    </div>
+    
+    <div class="form-group">
+      <label for="data_nascimento">Data Nascimento</label>
+      <input class="form-control" type="date" id="data_nascimento" name="data_nascimento"  value="<?=$aluno['data_nascimento'] ?? '' ?>" required="required">
+    </div>
+
+    <div class="my-2">
+        <button type="submit" class="btn btn-primary"> Salvar </button>
+        <button type="reset" class="btn btn-warning"> Cancelar </button>
+    </div>
+  </form>
+
+  
+  </div>

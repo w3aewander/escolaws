@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "nome":"Administrador do Sistema",
+        "email": "wander.silva@gmail.com",
+        "senha": "$2y$10$xYFacYnj/.mRHR.VPejmw.E5ZyzyXk3VznhT6nZdcubGFiy9YXWJ2"  ,
+        "perfil": "admin",
+        "ativo": true
+    },
+    {
+        "id": 2,
+        "nome":"Wanderlei Silva do Carmo",
+        "email": "wanderlei.scarmo@educador.edu.es.gov.br",
+        "senha": "$2y$10$/n.WlQqTs4uO2OQU.wYQjun.DEDJRx6xxuznatW4LJSv0Lx5qosLO"  ,
+        "perfil": "professor",
+        "ativo": true
+    }
+]
