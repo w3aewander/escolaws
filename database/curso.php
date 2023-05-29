@@ -5,7 +5,6 @@
 
  require __DIR__ . "/../libs/conexao.php";
 
-
  //teste de conexão..
  $sql = "select id, nome, date_format(data_inicio, '%d-%m-%Y') as data_inicio, date_format(data_termino, '%d-%m-%Y') as data_termino "; 
  $sql .= " from curso  "; //where id = ? ";
@@ -18,9 +17,10 @@
 
  //$stm->bind_param('i',  $id );
 
-
+ // executa o statement
  $stm->execute();
 
+ // pega o resultado
  $result =  $stm->get_result();
 
  $table = "<table class='table table-bordered table-hover table-striped'>";
@@ -46,6 +46,12 @@ while (  $row = $result->fetch_object() ){
 
  echo $table;
 
+
+ // fecha o conjunto de resultados liberando a memória
  $result->close();
+
+ // fecha o statement
  $stm->close();
 
+ // fecha a conexão...
+ $conn->close();

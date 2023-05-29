@@ -14,6 +14,7 @@
  $config = json_decode(file_get_contents($config_path));
 
  // Conexão com o banco de dados MySQL usando o MySQLi
+
  $conn = mysqli_connect($config->dbhost, $config->dbuser, $config->dbpass, $config->dbname);
 
  if ( !$conn){
