@@ -23,3 +23,60 @@
 
    return $html;
  }
+
+/**
+ * Ler arquivo CSV a partir dos parâmetros informados
+ * @param $caminho string O caminho do arquivo no sistema
+ * @param $dados mixed Os dados que serão escritos no arquivo
+ * @return none
+ */
+function ler_csv($caminho_arquivo) {
+    $dados = []; //ou array()
+    if (($handle = fopen($caminho_arquivo, "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
+            $dados[] = $data;
+        }
+        fclose($handle);
+    }
+    return $dados;
+}
+
+/**
+ * Ler arquivo CSV a partir dos parâmetros informados
+ * @param $caminho string O caminho do arquivo no sistema
+ * @param $dados mixed Os dados que serão escritos no arquivo
+ * @return none
+ */
+function escrever_csv($caminho_arquivo, $dados) {
+    if (($handle = fopen($caminho_arquivo, "w")) !== FALSE) {
+        foreach ($dados as $linha) {
+            fputcsv($handle, $linha, ";");
+        }
+        fclose($handle);
+    }
+}
+
+/**
+ * Ler arquivo CSV a partir dos parâmetros informados
+ * @param $caminho string O caminho do arquivo no sistema
+ * @param $dados mixed Os dados que serão escritos no arquivo
+ * @return none
+ */
+function atualizar_csv($caminho_arquivo, $dados) {
+    if (($handle = fopen($caminho_arquivo, "w")) !== FALSE) {
+        foreach ($dados as $linha) {
+            fputcsv($handle, $linha, ";");
+        }
+        fclose($handle);
+    }
+}
+
+/**
+ * Ler arquivo CSV a partir dos parâmetros informados
+ * @param $caminho string O caminho do arquivo no sistema
+ * @param $dados mixed Os dados que serão escritos no arquivo
+ * @return none
+ */
+function excluir_csv($caminho_arquivo) {
+    unlink($caminho_arquivo);
+}

@@ -1,44 +1,28 @@
 <?php
 /**
  * Script modelo para conexão com o banco de dados.
- * 
+ * @author Wanderlei Silva do Carmo <wander.silva@gmail.com>
+ * @version 1.0
  */
 
- // Conexão com o banco de dados PostgreSQL
-$conn = pgconnect("host= port= dbname= user= password=")
-or die('Não foi possível conectar ao banco de dados: '. pglast_error());
+ try{
 
-// Criação de uma tabela
-$result = pgquery("CREATE TABLE ( , , ,...)");
-if (!$result) {
-echo 'Não foi possível criar a tabela: '. pglast_error();
-}
+ // caminho do arquivo de configuração de acesso ao banco de dados
+ $config_path = __DIR__ . "/../config/config.json";
 
-// Inserção de dados na tabela
-$result = pgquery("INSERT INTO (, , ,...) VALUES (, , ,...)");
-if (!$result) {
-echo 'Não foi possível inserir os dados na tabela: '. pglast_error();
-}
+ // carregar dados de conexão
+ $config = json_decode(file_get_contents($config_path));
 
-// Consulta de dados da tabela
-$result = pgquery("SELECT , , ,... FROM ");
-if (!$result) {
-echo 'Não foi possível executar a consulta na tabela: '. pglast_error();
-}
+ // Conexão com o banco de dados MySQL usando o MySQLi
+ $conn = mysqli_connect($config->dbhost, $config->dbuser, $config->dbpass, $config->dbname);
 
-// Atualização de dados na tabela
-$result = pg_query("UPDATE SET = , = , = ,... WHERE ");
-if (!$result) {
-echo 'Não foi possível atualizar os dados';
-}
+ if ( !$conn){
+    throw new Exception("Erro ao tentar conectar o banco de dados.");
+ }
+     
+ } catch (Exception $ex){
 
-// Exclução de dados da tabela
-$result = pgquery("DELETE FROM WHERE ");
-if (!$result) {
-echo 'Não foi possível excluir os dados da tabela: '. pglast_error();
-}
+    die ( $ex->getCode() . ": " . $ex->getMessage());
+ }
 
-// Fecha da conexão com o banco de dados
-pg_close($conn);
 
-?>
