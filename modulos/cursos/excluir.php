@@ -1,26 +1,41 @@
 <?php
+
 /**
  * Página inicial
  *  
-*/
+ */
 include __DIR__ . "/../../config/config.inc.php";
 include __DIR__ .  "/../../includes/header.php";
 include __DIR__ .  "/../../database/dados.php";
 
+include __DIR__ . "/../../libs/conexao.php";
+
 ?>
 <div class="container">
 
-<h1>Exclusão de aluno</h1>
+  <h1>Exclusão de aluno</h1>
 
+  <?php
+
+  $codigo = $_REQUEST['id'] ?? "";
+
+  if ($codigo) {
   
- <?php 
+    $sql = 'delete from curso where id=?';
+
+    $stm = mysqli_prepare($conn, $sql);
+
+    $stm->bind_param('i', $codigo);
+
+    if (!$stm->execute()) {
+      echo "Não foi possível excluir o registro.";
+    }
+
+    $stm->close();
+    $conn->close();
  
- $codigo = $_REQUEST['codigo'] ?? ""; 
-
-  if ( $codigo ){
-  echo "Os dados do curso com o código $codigo serão excluídos da base de dados.";
-  
-  excluirDados($codigo, __DIR__ . "/../../database/cursos.csv");
+    echo "registro excluído com sucesso... redirecionando para a página inicial do módulo, aguarde por favor.";
+    header('refresh: 2; index.php');
 
   } else {
     echo "Nenhum código informado para exclusão.";
@@ -31,7 +46,7 @@ include __DIR__ .  "/../../database/dados.php";
     echo "<div class='form-group mb-2'>";
     echo "  <label for='codigo'>Código do curso:</label>";
     echo "  <div class='input-group'>";
-    echo "    <input type='number' id='codigo' name='codigo' placeholder='digite o código para exclusão' class='form-control'>";
+    echo "    <input type='number' id='id' name='id' placeholder='digite o código para exclusão' class='form-control'>";
     echo "    <button type='submit' class='btn btn-secondary'><i class='fa fa-check fa-fw'></i></button>";
     echo "  </div>";
     echo "</form>";
@@ -39,12 +54,11 @@ include __DIR__ .  "/../../database/dados.php";
 
   ?>
 
-  </div>
+</div>
 
-  <?php
+<?php
 
-  //incluindo o arquivo de rodapé...
-  include __DIR__ .  "/../../includes/footer.php";
+//incluindo o arquivo de rodapé...
+include __DIR__ .  "/../../includes/footer.php";
 
-  ?>
-
+?>

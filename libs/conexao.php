@@ -15,7 +15,10 @@
 
  // Conexão com o banco de dados MySQL usando o MySQLi
 
- $conn = mysqli_connect($config->dbhost, $config->dbuser, $config->dbpass, $config->dbname);
+ $conn = mysqli_connect( $config->dbhost, 
+                         $config->dbuser, 
+                         $config->dbpass, 
+                         $config->dbname);
 
  if ( !$conn){
     throw new Exception("Erro ao tentar conectar o banco de dados.");

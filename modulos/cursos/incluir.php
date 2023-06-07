@@ -1,49 +1,64 @@
 <?php
+
 /**
  * Página inicial
  *  
-*/
-  // ele tenta incluir um arquivo
-  //cabelalho:
-  
-  include __DIR__ . "/../../config/config.inc.php";
-  include __DIR__ . "/../../includes/header.php";
+ */
+// ele tenta incluir um arquivo
+//cabelalho:
 
-  ?>
+include __DIR__ . "/../../config/config.inc.php";
+include __DIR__ . "/../../includes/header.php";
 
-  <div class="container">
+include __DIR__ . "/../../libs/conexao.php";
+
+?>
+
+<div class="container">
 
   <h4>Inclusão de cursos no cadastro</h4>
 
   <?php
- 
-     //variável para "pegar" o método de envio da requisição (request)
-     $metodo =  $_SERVER["REQUEST_METHOD"];
 
-     //verifica se o método é igual a  post...
-     if( $metodo == "POST" ){
+  //variável para "pegar" o método de envio da requisição (request)
+  $metodo =  $_SERVER["REQUEST_METHOD"];
 
-      $codigo = $_POST["codigo"];
-      $nome = $_POST["nome"];
- 
-      $info = "$codigo;$nome" ."\n";
+  //verifica se o método é igual a  post...
+  if ($metodo == "POST") {
 
-      //Inclusão em um arquivo...
-      file_put_contents(__DIR__ . "/../../database/cursos.csv", $info, FILE_APPEND);
+    $codigo = $_POST["codigo"];
+    $nome = $_POST["nome"];
+    $data_inicio = $_POST["data_inicio"];
+    $data_termino = $_POST["data_termino"];
 
-      //$lista = file_get_contents(__DIR__ . "/../../database/alunos.csv");
+    if ($codigo) {
+      //se o código for informado então a query será para atualizar.
+      $sql = "update curso set nome = ?, data_inicio=?, data_termino=? where id = ?";
+      $stm = mysqli_prepare($conn, $sql);
+      $stm->bind_param('ssss', $nome, $data_inicio, $data_termino, $codigo);
+    } else {
+      $sql = "insert into curso(nome, data_inicio, data_termino) values (?,?,?)";
+      $stm = mysqli_prepare($conn, $sql);
+      $stm->bind_param('sss', $nome, $data_inicio, $data_termino);
+    }
 
-      header("location: $dir/modulos/cursos", true);
 
-  
-     } 
-       //senão...
-       else 
-     { 
-       
-      include __DIR__ . "/../../templates/cursos/form.tpl.html";
+    if (!$stm->execute()) {
 
-     }
+      echo "Não foi possível incluir o registro.";
+    }
+
+    $stm->close();
+    $conn->close();
+
+    echo "Registro incluído com sucesso. Redirecionando para a página inicial do módulo.";
+
+
+    header("refresh: 2; $dir/modulos/cursos", true);
+  } else {
+
+    include __DIR__ . "/../../templates/cursos/form.tpl.html";
+  }
   ?>
 
 

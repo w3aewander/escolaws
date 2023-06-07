@@ -10,32 +10,38 @@
   
   include __DIR__ .  "/../../includes/header.php";
 
-  include __DIR__ .  "/../../database/dados.php";
+  //include __DIR__ .  "/../../database/dados.php";
+
+  include __DIR__ . "/../../libs/conexao.php";
 
   $metodo = $_SERVER['REQUEST_METHOD'];
   
-  $codigo = $_REQUEST['codigo'] ?? '';
+  $codigo = $_REQUEST['id'] ?? '';
 
   if ( $metodo == 'POST') {
   
     include __DIR__ . '/alterar.php';
 
   }
+
+  $sql = "select * from curso where id = ?";
+
+  $stm = mysqli_prepare($conn, $sql);
+
+  $stm->bind_param('i', $codigo);
+
+  $stm->execute();
+
+  $result = $stm->get_result();
   
-  if ( $codigo ){
-    $filtro = array_filter($cursos, function($m) use($codigo){
-           
-        return $m[0] == $codigo ;
-            
-    });
-    
-    foreach ( $filtro as $curso){}
+  $curso = $result->fetch_assoc();
 
-   }
-    
-    
-    include __DIR__ .  "/../../templates/cursos/editar.tpl.html";
+  include __DIR__ .  "/../../templates/cursos/editar.tpl.html";
 
-    include __DIR__ .  "/../../includes/footer.php";
+  $result->close();
+  $stm->close();
+  $conn->close();
+
+  include __DIR__ .  "/../../includes/footer.php";
 
 

@@ -12,10 +12,10 @@
   
 
   $menu_cursos = [
-    "Inicio"    => ["link"=> "$dir/index.php", "icone" => "<i class='fa fa-home fa-fw'></i>"],
-    "Incluir"   => ["link"=> "$dir/modulos/cursos/incluir.php","icone" => "<i class='fa fa-plus-circle fa-fw'></i>"],
-    "Excluir"   => ["link"=> "$dir/modulos/cursos/excluir.php","icone" => "<i class='fa fa-minus-circle fa-fw'></i>"],
-    "Pesquisar" => ["link"=> "$dir/modulos/cursos/pesquisar.php", "icone" => "<i class='fa fa-search fa-fw'></i>"],
+    "Inicio"    => ["link"=> "$dir"."index.php", "icone" => "<i class='fa fa-home fa-fw'></i>"],
+    "Incluir"   => ["link"=> "$dir"."modulos/cursos/incluir.php","icone" => "<i class='fa fa-plus-circle fa-fw'></i>"],
+    "Excluir"   => ["link"=> "$dir"."modulos/cursos/excluir.php","icone" => "<i class='fa fa-minus-circle fa-fw'></i>"],
+    "Pesquisar" => ["link"=> "$dir"."modulos/cursos/pesquisar.php", "icone" => "<i class='fa fa-search fa-fw'></i>"],
   ];
 
   
