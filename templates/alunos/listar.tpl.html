@@ -1,15 +1,17 @@
 <div class="container">
-
-    <h4>Listagem de Alunos</h4>
     
     <table class="table table-bordered table-hover table-striped">
     
        <thead>
+         <tr>
+            <th class="bg-secondary" colspan="6"><h4>Listagem de Alunos</h4></th>
+         </tr>
           <tr>
              <th align="start">Matricula</th>
-             <th align="start">curso</th>
              <th align="start">Nome</th>
-             <th align="start">Nascimento</th>  
+             <th align="start">Email</th>  
+             <th align="start">Data matrícula</th>  
+             <th align="start">curso</th>
              <th align="start">Operações</th>       
           </tr>
        </thead>
@@ -17,17 +19,17 @@
        <tbody>
             <?php
          
-            
-               foreach ($alunos as $chave => $aluno) {
-                  $matricula = $aluno[0];
+               while ($row = $result->fetch_assoc()) {
+                  
                   echo "<tr>";
-                  echo "<td align='start'> $matricula</td>";
-                  echo "<td align='start'>".$aluno[1]."</td>";
-                  echo "<td align='start'>".$aluno[2]."</td>";
-                  echo "<td align='start'>".$aluno[3]."</td>";
+                  echo "<td align='start'>{$row['id']}</td>";
+                  echo "<td align='start'>{$row['nome']}</td>";
+                  echo "<td align='start'>{$row['email']}</td>";
+                  echo "<td align='start'>{$row['data_matricula']}</td>";
+                  echo "<td align='start'>{$row['curso_id']}</td>";
                   echo "<td align='start'>
-                           <a href='editar.php?matricula=$matricula' class='btn btn-info btn-sm'> Editar </a> 
-                           <a href='excluir.php?matricula=$matricula'' class='btn btn-danger btn-sm'> Excluir </a> 
+                           <a href='editar.php?matricula={$row["id"]}' class='btn btn-info btn-sm'> Editar </a> 
+                           <a href='excluir.php?matricula={$row["id"]}' class='btn btn-danger btn-sm'> Excluir </a> 
                         </td>";
                   echo "</tr>";
               }

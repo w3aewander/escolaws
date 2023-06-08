@@ -8,19 +8,17 @@
   
   include __DIR__ .  "/../../includes/header.php";
 
-  //incluindo o arquivo home.. arquivo inicial
 
   $menu_alunos = [
-    "Inicio"    => ["link" => "$dir/index.php", "icone" => "<i class='fa fa-home fa-fw'></i> Inicio"],
-    "Incluir"   => ["link" => "$dir/modulos/alunos/incluir.php", "icone" => "<i class='fa fa-plus fa-fw'></i> Incluir"],
-    "Excluir"   => ["link" => "$dir/modulos/alunos/excluir.php", "icone" => "<i class='fa fa-minus fa-fw'></i> Excluir"],
-    "Listar"    => ["link" => "$dir/modulos/alunos/listar.php", "icone" => "<i class='fa fa-list fa-fw'></i> Listar"],
-    "Pesquisar" => ["link" =>  "$dir/modulos/alunos/pesquisar.php", "icone" => "<i class='fa fa-search fa-fw'></i> Pesquisar"] 
+    "Inicio"    => ["link"=> "$dir"."index.php", "icone" => "<i class='fa fa-home fa-fw'></i>"],
+    "Incluir"   => ["link"=> "$dir"."modulos/alunos/incluir.php","icone" => "<i class='fa fa-plus-circle fa-fw'></i>"],
+    "Excluir"   => ["link"=> "$dir"."modulos/alunos/excluir.php","icone" => "<i class='fa fa-minus-circle fa-fw'></i>"],
+    "Pesquisar" => ["link"=> "$dir"."modulos/alunos/pesquisar.php", "icone" => "<i class='fa fa-search fa-fw'></i>"],
   ];
 
   include  __DIR__ . "/../../templates/alunos/home.tpl.html";
-  
-  include __DIR__ .  "/../../templates/alunos/listar.tpl.html";
+
+  include __DIR__ .  "/../../modulos/alunos/listar.php";
 
   //incluindo o arquivo de rodapé...
   include __DIR__ . "/../../includes/footer.php";

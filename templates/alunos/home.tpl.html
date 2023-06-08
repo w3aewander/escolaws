@@ -1,6 +1,16 @@
 <div class="container">
+
     <h4>Módulo alunos</h4>
 
-    <?=exibirMenuModulo($menu_alunos)?>
+    <div class="d-flex flex-row gap-1 py-2">
+
+        <?php foreach($menu_alunos as $menu ){ ?>
+            
+            <div class="list-group-item"><a class="btn btn-block btn-danger" href="<?=$menu['link']?>"><?=$menu['icone']?></a></div>
+            
+        <?php } ?>
+    </div>
+
+    <?php require __DIR__ . "/../../modulos/alunos/listar.php"; ?>
 
 </div>
