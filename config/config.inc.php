@@ -20,7 +20,7 @@ include __DIR__  . "/../libs/libmenu.php";
 
 const APP_TITLE = "Escola WS - Pauta Eletrônica";
 const APP_NAME = "Aplicação Modular Didática";
-const APP_VERSION = "2023.04.05";
+const APP_VERSION = "2023.06.07-MySQL";
 
 
 
