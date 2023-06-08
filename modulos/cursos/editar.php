@@ -23,7 +23,7 @@
     include __DIR__ . '/alterar.php';
 
   }
-
+  //evitar sql_injection --- use uma consulta preparada.
   $sql = "select * from curso where id = ?";
 
   $stm = mysqli_prepare($conn, $sql);

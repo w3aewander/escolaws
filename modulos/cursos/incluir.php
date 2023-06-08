@@ -45,13 +45,14 @@ include __DIR__ . "/../../libs/conexao.php";
 
     if (!$stm->execute()) {
 
-      echo "Não foi possível incluir o registro.";
+      echo "Não foi possível incluir ou atualizar o registro.";
     }
 
     $stm->close();
     $conn->close();
 
-    echo "Registro incluído com sucesso. Redirecionando para a página inicial do módulo.";
+    echo "Registro incluído ou atualizado com sucesso. 
+          Redirecionando para a página inicial do módulo.";
 
 
     header("refresh: 2; $dir/modulos/cursos", true);

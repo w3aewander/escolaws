@@ -12,12 +12,7 @@
  $sql .= " from curso  "; //where id = ? ";
 
  // realiza a consulta;
- //$result = mysqli_query($conn, $sql);
  $stm = mysqli_prepare($conn, $sql);
- 
- //$id = ';
-
- //$stm->bind_param('i',  $id );
 
  // executa o statement
  $stm->execute();
@@ -49,8 +44,8 @@
         $table .= "<td>{$row->termino}</td>";
         $table .= "<td></td>";
         $table .= "<td>
-                    <a href='editar.php?id={$row->id}'>Editar</a>
-                    <a href='excluir.php?id={$row->id}'>Excluir</a>
+                    <a class='btn btn-info' href='editar.php?id={$row->id}'><i class='fa fa-edit'></i> Editar</a>
+                    <a class='btn btn-danger' href='excluir.php?id={$row->id}'><div class='fa fa-trash'></div>Excluir</a>
                     </td>";
         $table .= "</tr>"; 
     }
