@@ -19,7 +19,7 @@
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="<?=$dir?>modulos/cursos"><i class="fas fa-chalkboard-teacher"></i> Cursos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?=$dir?>modulos/alunos"><i class="fa fa-users-class"></i> Alunos</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/alunos">&#x1F469;&#x200D;&#x1F393; Alunos</a></li>
             <li><a class="dropdown-item" href="<?=$dir?>modulos/professores"><i class="fa fa-users-class"></i>  Professores</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?=$dir?>modulos/disciplinas">Disciplinas</a></li>

@@ -18,7 +18,7 @@
 
   include  __DIR__ . "/../../templates/alunos/home.tpl.html";
 
-  include __DIR__ .  "/../../modulos/alunos/listar.php";
+  require __DIR__ . "/../../modulos/alunos/listar.php";
 
   //incluindo o arquivo de rodapé...
   include __DIR__ . "/../../includes/footer.php";

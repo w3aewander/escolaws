@@ -1,23 +1,25 @@
 <div class="container">
-    
-    <table class="table table-bordered table-hover table-striped">
-    
-       <thead>
+
+   <table class="table table-bordered table-hover table-striped">
+
+      <thead>
          <tr>
-            <th class="bg-secondary" colspan="6"><h4>Listagem de Alunos</h4></th>
+            <th class="bg-secondary" colspan="6">
+               <h4>Listagem de Alunos</h4>
+            </th>
          </tr>
-          <tr>
-             <th align="start">Matricula</th>
-             <th align="start">Nome</th>
-             <th align="start">Email</th>  
-             <th align="start">Data matrícula</th>  
-             <th align="start">curso</th>
-             <th align="start">Operações</th>       
-          </tr>
-       </thead>
-      
-       <tbody>
-            <?php
+         <tr>
+            <th align="start">Matricula</th>
+            <th align="start">Nome</th>
+            <th align="start">Email</th>
+            <th align="start">Data matrícula</th>
+            <th align="start">curso</th>
+            <th align="start">Operações</th>
+         </tr>
+      </thead>
+
+      <tbody>
+         <?php
          
                while ($row = $result->fetch_assoc()) {
                   
@@ -34,9 +36,9 @@
                   echo "</tr>";
               }
        
-           ?>   
-       </tbody>
-    
-    </table>
-    
-    </div>
+           ?>
+      </tbody>
+
+   </table>
+
+</div>
