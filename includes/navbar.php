@@ -17,13 +17,13 @@
           <i class="fas fa-puzzle-piece"></i> Módulos
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?=$dir?>modulos/cursos"><i class="fas fa-chalkboard-teacher"></i> Cursos</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/cursos"><i class="icon-curso"></i> Cursos</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?=$dir?>modulos/alunos">&#x1F469;&#x200D;&#x1F393; Alunos</a></li>
-            <li><a class="dropdown-item" href="<?=$dir?>modulos/professores"><i class="fa fa-users-class"></i>  Professores</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/alunos"><span class="icon-aluno"></span> Alunos</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/professores"><span class="icon-professor"></span> Professores</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="<?=$dir?>modulos/disciplinas">Disciplinas</a></li>
-            <li><a class="dropdown-item" href="<?=$dir?>modulos/pautas">Pautas</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/disciplinas"><span class="icon-disciplina"></span> Disciplinas</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/pautas"><span class="icon-pauta"></span> Pautas</a></li>
 
           </ul>
         </li>

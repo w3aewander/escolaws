@@ -1,6 +1,9 @@
 :root{
    --bg-header: rgb(255, 255, 255);  
 }
+i{
+   font-style: normal;
+}
 body{
    padding-top: 250px;
    background-color:rgb(42, 149, 198)
@@ -55,4 +58,20 @@ body{
 
    .text-header{
       color:rgb(12, 139, 0);
+   }
+
+   .icon-professor::before{
+       content: "\1F468\200D\1F3EB";
+   }
+   .icon-aluno::before{
+      content: "\1F469\200D\1F393";
+   }
+   .icon-disciplina::before{
+      content: "\1F4DA";
+   }
+   .icon-pauta::before{
+      content: "\1F58A";
+   }
+   .icon-curso::before{
+      content: "\1F393";
    }
