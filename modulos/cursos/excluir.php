@@ -17,7 +17,7 @@ include __DIR__ . "/../../libs/conexao.php";
 
   <?php
 
-  $codigo = $_REQUEST['id'] ?? "";
+  $codigo = $_REQUEST['id'] ?? '';
 
   if ($codigo) {
   

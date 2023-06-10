@@ -15,7 +15,9 @@
  $stm = mysqli_prepare($conn, $sql);
 
  // executa o statement
- $stm->execute();
+ if ( !$stm->execute()){
+    echo "Nao foi possível executar a consulta.";
+ }
 
  // pega o resultado
  $result =  $stm->get_result();
