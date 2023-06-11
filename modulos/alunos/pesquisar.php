@@ -20,7 +20,7 @@ if ( $nome ){
     $email = '%'.$email.'%';
 }
 
-$sql = 'select a.id, a.nome,a.email, a.data_matricula, a.curso_id, c.nome as curso
+$sql = 'select a.id, a.nome,a.email, date_format(a.data_matricula, "%d/%m/%Y") as data_matricula, a.curso_id, c.nome as curso
         from alunos a 
         inner join curso c 
         on a.curso_id = c.id 

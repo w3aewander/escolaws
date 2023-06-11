@@ -2,7 +2,14 @@
  * Javascript ...
  */
 
+document.addEventListener( 'DOMContentLoaded', (evt)=>{
 
+});
+
+const confirmar = (e,v) => {
+   e.preventDefault();
+   alert(e.target);
+}
 const months = [
                "janeiro", "fevereiro", "março", 
                "abril", "maio", "junho", 

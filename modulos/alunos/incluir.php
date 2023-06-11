@@ -44,7 +44,7 @@
          echo "<div class='alert alert-warning'>Não foi possível incluir o registro.</div>";
       }
 
-      echo "<div class='alert alert-success' style='width: 70%'>&#xRegistro incluido com sucesso.</div>";
+      echo "<div class='alert alert-success' style='width: 70%'><i class='icon-like'></i> Registro incluido com sucesso.</div>";
       
       $stm->close();
       $conn->close();

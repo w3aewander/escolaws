@@ -22,7 +22,7 @@ include __DIR__ . "/../../libs/conexao.php";
     <div class="card-body">
 
       <!-- CRUD -->
-      <!-- CREATE, RETRIEVE, UPDATE0, DELETE -->
+      <!-- CREATE, RETRIEVE, UPDATE, DELETE -->
 
       <?php
 

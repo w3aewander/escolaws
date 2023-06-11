@@ -1,4 +1,4 @@
-<div class="container" style="height:70vh">
+<div class="container">
   <form action="<?=$_SERVER['PHP_SELF']?>">
   <div class="card">
       <div class="card-header">
@@ -11,7 +11,7 @@
       <div class="card-body">
         <div class="form-group">
           <label for="nome"></label>
-          <input class="form-control" type="text" name="nome" id="nome"  value="<?=$nome ?? ''?>"
+          <input class="form-control" type="text" name="nome" id="nome"  value="<?=trim('%',$nome) ?? ''?>"
             placeholder="nome ou parte do nome do curso aqui...">
         </div>
         <div class="form-group">
@@ -30,36 +30,27 @@
       </div>
   </div>
   </form>
-</div>
 
-<div class="container">
-  <div class="card">
-    <div class="card-header">
-      <div class="card-title">
-        Resultado da pesquisa
-      </div>
-    </div>
-    <div class="card-body" style="height: 60vh;overflow: scroll">
-      <table class="table table-striped table-hover">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Data Inicio</th>
-            <th>Data Fim</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php while( $row = $result->fetch_object() ) { 
-                  echo "<tr>
-                    <td>{$row->id}</td>
-                    <td>{$row->nome}</td>
-                    <td>{$row->data_inicio}</td>
-                    <td>{$row->data_termino}</td>
-                  </tr>";
-                  } ?>
-        </tbody>
-      </table>
-    </div>
+  <div class="my-5">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Data Inicio</th>
+        <th>Data Fim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while( $row = $result->fetch_object() ) { 
+              echo "<tr>
+                <td>{$row->id}</td>
+                <td>{$row->nome}</td>
+                <td>{$row->data_inicio}</td>
+                <td>{$row->data_termino}</td>
+              </tr>";
+              } ?>
+    </tbody>
+  </table>
   </div>
 </div>
