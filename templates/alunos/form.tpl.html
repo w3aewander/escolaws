@@ -22,18 +22,23 @@
         $stm->execute();
         
         $result = $stm->get_result();
-        
+
+        while ( $row = $result->fetch_assoc()){ 
           
-          while ( $row = $result->fetch_assoc()){ ?>
-            <option value="<?=$row['id'] ?? '0' ;?>"> 
-                    <?="{$row['id']}-{$row['nome']}";?>
-          </option>
-         
-                
-      
+          if ( $aluno['curso_id']){
+            echo "<option selected value='{$aluno["curso_id"]}'> 
+                    {$row['id']}-{$row['nome']}
+                  </option>";
+                } else {
+                  echo "<option value='{$row["id"]}'> 
+                           {$row['id']}-{$row['nome']} 
+                  </option>";
+                }
+          }
+
            $conn->close();
       
-        <?php } ?>
+        ?>
 
     </select>
   </div>

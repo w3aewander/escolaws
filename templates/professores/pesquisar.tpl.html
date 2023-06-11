@@ -1,0 +1,56 @@
+<div class="container">
+  <form action="<?=$_SERVER['PHP_SELF']?>">
+  <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h4>Pesquisar</h4>
+          <p class="alert alert-info">Digite o nome ou parte do nome do curso e demais campos se necessário para iniciar
+            a pesquisa.</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="nome"></label>
+          <input class="form-control" type="text" name="nome" id="nome"  value="<?=trim('%',$nome) ?? ''?>"
+            placeholder="nome ou parte do nome do curso aqui...">
+        </div>
+        <div class="form-group">
+          <label for="data_inicio"></label>
+          <input class="form-control" type="date" na value="<?=$data_inicio?>"me="data_inicio ?? ''" id="data_inicio">
+        </div>
+        <div class="form-group">
+          <label for="data_termino"></label>
+          <input class="form-control" type="date" name="data_termino"  value="<?=$data_termino ??'' ?>" id="data_termino">
+        </div>
+      </div>
+      <div class="card-footer">
+        <p class="p-2">
+          <button class="btn btn-primary btn-secondary"><i class="fa fa-binoculars"></i> Pesquisar</button>
+        </p>
+      </div>
+  </div>
+  </form>
+
+  <div class="my-5">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Data Inicio</th>
+        <th>Data Fim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php while( $row = $result->fetch_object() ) { 
+              echo "<tr>
+                <td>{$row->id}</td>
+                <td>{$row->nome}</td>
+                <td>{$row->data_inicio}</td>
+                <td>{$row->data_termino}</td>
+              </tr>";
+              } ?>
+    </tbody>
+  </table>
+  </div>
+</div>

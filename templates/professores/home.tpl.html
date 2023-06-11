@@ -1,0 +1,16 @@
+<div class="container">
+
+    <h4><i class="icon-curso fa-fw"></i> Módulo cursos</h4>
+
+    <div class="d-flex flex-row gap-1 py-2">
+
+        <?php foreach($menu_professores as $menu ){ ?>
+            
+            <div class="list-group-item"><a class="btn btn-block btn-danger" href="<?=$menu['link']?>"><?=$menu['icone']?></a></div>
+            
+        <?php } ?>
+    </div>
+
+    <?php require __DIR__ . "/../../modulos/professores/listar.php"; ?>
+
+</div>
