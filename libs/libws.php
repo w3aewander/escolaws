@@ -104,4 +104,14 @@
 
  }
  
+ /**
+  * Mostra uma mensagem usando o bootstrap
+  * @param $tipo String O tipo de mensagem: alert-success, alert-warning, alert-danger, alert-info
+  * @return $alerta String A mensagem de alerta estilizada com bootstrap
+  * @author Wanderlei Silva do Carmo <wander.silva@gmail.com>
+  */
+ function mostrarAlerta($tipo="alert-success",$icon="icon-like", $mensagem=""){
+    $alerta = sprintf("<div class='alert %s'><i class='%s fa-2x'></i> %s</div>", $tipo, $icon, $mensagem);
+    echo $alerta;
+ }
  

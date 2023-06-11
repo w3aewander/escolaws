@@ -75,3 +75,15 @@ body{
    .icon-curso::before{
       content: "\1F393";
    }
+   .icon-like::before{
+      content: "\1F44D";
+   }
+   .icon-dislike::before{
+      content: "\1F44E";
+   }
+   .icon-descontent::before{
+      content: "\1F44D";
+   }
+   .icon-excluir::before{
+      content: "\274C";
+   }

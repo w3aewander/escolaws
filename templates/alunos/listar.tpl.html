@@ -1,11 +1,11 @@
-<div class="container">
+<!-- <div class="container"> -->
 
    <table class="table table-bordered table-hover table-striped">
 
       <thead>
          <tr>
             <th class="bg-secondary" colspan="6">
-               <h4>Listagem de Alunos</h4>
+               <i class="fa fa-list"></i> Listagem de Alunos
             </th>
          </tr>
          <tr>
@@ -13,7 +13,7 @@
             <th align="start">Nome</th>
             <th align="start">Email</th>
             <th align="start">Data matrícula</th>
-            <th align="start">curso</th>
+            <th align="start">Curso</th>
             <th align="start">Operações</th>
          </tr>
       </thead>
@@ -28,10 +28,10 @@
                   echo "<td align='start'>{$row['nome']}</td>";
                   echo "<td align='start'>{$row['email']}</td>";
                   echo "<td align='start'>{$row['data_matricula']}</td>";
-                  echo "<td align='start'>{$row['curso_id']}</td>";
+                  echo "<td align='start'>{$row['curso']}</td>";
                   echo "<td align='start'>
-                           <a href='editar.php?matricula={$row["id"]}' class='btn btn-info btn-sm'> Editar </a> 
-                           <a href='excluir.php?matricula={$row["id"]}' class='btn btn-danger btn-sm'> Excluir </a> 
+                           <a href='editar.php?id={$row["id"]}' class='btn btn-info btn-sm'><i class='fa fa-edit'></i> Editar </a> 
+                           <a href='excluir.php?id={$row["id"]}' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i> Excluir </a> 
                         </td>";
                   echo "</tr>";
               }
@@ -41,4 +41,4 @@
 
    </table>
 
-</div>
+<!-- </div> -->

@@ -242,3 +242,23 @@ function pesquisar($param, $path)
     //exclua o arquivo auxiliar
     unlink($arqtemp);
 }
+
+ /**
+  * Mostra o nome do curso
+  * @param $id int O ID do curso
+  * @return $nome String O nome do curso.
+  */
+  function mostrarCurso($id){
+
+    include __DIR__ . "/../../libs/conexao.php";
+
+    $sql = 'select * from curso where id = ?';
+    $stm = mysqli_prepare($conn, $sql);
+    $stm->bind_param('i',$id);
+    $stm->execute();
+    $result = $stm->get_result();
+    $curso = $result->fetch_assoc();
+    $conn->close();
+
+    return $curso['nome'];
+ }

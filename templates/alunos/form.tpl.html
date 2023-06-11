@@ -1,18 +1,18 @@
+<form id="form-incluir-aluno" name="form-incluir-aluno" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
 
-<form id="form-incluir-aluno" name="form-incluir-aluno" action="#" method="POST">
-  
-    <div class="form-group">
-      <label for="matricula">Matrícula</label>
-      <input class="form-control" type="number" id="matricula" name="matricula" value="<?=$aluno['matricula'] ?? '0' ?>" required="required" readonly="readonly">
-    </div>
+  <div class="form-group">
+    <label for="id">Matrícula</label>
+    <input class="form-control" type="number" id="id" name="id" value="<?=$aluno['id'] ?? '0' ?>" required="required"
+      readonly="readonly">
+  </div>
 
-    <div class="form-group">
-      <label for="curso">Curso</label>
-      <select class="form-control" name="curso" id="curso">
-        <option selected value="">Selecione um curso...</option>
-        <!-- preenche com os dados do curso -->
+  <div class="form-group">
+    <label for="curso_id">Curso</label>
+    <select class="form-control" name="curso_id" id="curso_id">
 
-        <?php
+      <option selected value="">Selecione um curso...</option>
+      <!-- preenche com os dados do curso -->
+      <?php
         
         include __DIR__ . "/../../libs/conexao.php";
 
@@ -20,38 +20,47 @@
         
         $stm = mysqli_prepare($conn, $sql);
         $stm->execute();
-        $cursos = $stm->get_result();
-
-        while ( $curso = $cursos->fetch_assoc()){ ?>
+        
+        $result = $stm->get_result();
+        
           
-          <option value="<?=$nome?>"> 
-              <?php echo $curso['id'] . "-" . $curso['nome']; ?>
+          while ( $row = $result->fetch_assoc()){ ?>
+            <option value="<?=$row['id'] ?? '0' ;?>"> 
+                    <?="{$row['id']}-{$row['nome']}";?>
           </option>
-
-        <?php
-         }
+         
+                
+      
            $conn->close();
       
-        ?>
-      
-      </select>
-    </div>
+        <?php } ?>
 
-    <div class="form-group">
-      <label for="nome">Nome</label>
-      <input class="form-control" type="text" id="nome" name="nome"  value="<?=$aluno['nome'] ?? '' ?>" required="required">
-    </div>
-    
-    <div class="form-group">
-      <label for="data_nascimento">Data Nascimento</label>
-      <input class="form-control" type="date" id="data_nascimento" name="data_nascimento"  value="<?=$aluno['data_nascimento'] ?? '' ?>" required="required">
-    </div>
-
-    <div class="my-2">
-        <button type="submit" class="btn btn-primary"> Salvar </button>
-        <button type="reset" class="btn btn-warning"> Cancelar </button>
-    </div>
-  </form>
-
-  
+    </select>
   </div>
+
+  <div class="form-group">
+    <label for="nome">Nome</label>
+    <input class="form-control" type="text" id="nome" name="nome" value="<?=$aluno['nome'] ?? '' ?>"
+      required="required">
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input class="form-control" type="email" id="email" name="email" value="<?=$aluno['email'] ?? '' ?>"
+      required="required">
+  </div>
+
+  <div class="form-group">
+    <label for="data_matricula">Data Matrícula</label>
+    <input class="form-control" type="date" id="data_matricula" name="data_matricula"
+      value="<?=$aluno['data_matricula'] ?? '' ?>" required="required">
+  </div>
+
+  <div class="my-2">
+    <button type="submit" class="btn btn-primary"> Salvar </button>
+    <button type="reset" class="btn btn-warning"> Cancelar </button>
+  </div>
+</form>
+
+
+</div>
