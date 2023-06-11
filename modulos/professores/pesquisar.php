@@ -20,18 +20,19 @@ if ( $nome ){
     $email = '%'.$email.'%';
 }
 
-$sql = 'select a.id, a.nome,a.email, date_format(a.data_matricula, "%d/%m/%Y") as data_matricula, a.curso_id, c.nome as curso
-        from alunos a 
-        inner join curso c 
-        on a.curso_id = c.id 
-        where a.nome like ? or a.email like ?';
+$sql = 'select p.id, p.nome,p.email, date_format(p.data_admissao, "%d/%m/%Y") as data_admissao
+        from professores p 
+        where p.nome like ? or p.email like ?';
 
 $stm = mysqli_prepare($conn, $sql);
 $stm->bind_param('ss',  $nome, $email);
 $stm->execute();
 $result = $stm->get_result();
 
-include __DIR__ .  "/../../templates/alunos/pesquisar.tpl.html";
+$nome = trim($nome);
+$email = trim($email);
+
+include __DIR__ .  "/../../templates/professores/pesquisar.tpl.html";
 
 $stm->close();
 $conn->close();

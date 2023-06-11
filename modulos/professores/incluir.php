@@ -15,7 +15,7 @@
 
   <div class="container">
 
-  <h4>Inclusão de alunos no cadastro</h4>
+  <h4>Inclusão de professores no cadastro</h4>
 
   <?php
  
@@ -26,19 +26,18 @@
      //se for POST vai incluir 
      if( $metodo == "POST" ){
 
-       $matricula = $_POST["id"];
+       $codigo = $_POST["id"];
        $nome      = $_POST["nome"];
        $email     = $_POST["email"];
-       $data_matricula = $_POST["data_matricula"];
-       $curso_id     = $_POST["curso_id"];
- 
+       $data_admissao = $_POST["data_admissao"];
+     
 
-      $sql = " insert into alunos(nome, email, data_matricula, curso_id) 
-               values(?,?,?,?);";
+      $sql = " insert into professores(nome, email, data_admissao) 
+               values(?,?,?);";
     
       $stm = mysqli_prepare($conn, $sql);
 
-      $stm->bind_param('sssi', $nome, $email, $data_matricula, $curso_id);
+      $stm->bind_param('sss', $nome, $email, $data_admissao);
 
       if ( ! $stm->execute() ){
          echo "<div class='alert alert-warning'>Não foi possível incluir o registro.</div>";
@@ -54,7 +53,7 @@
   
      } else { 
        
-      include __DIR__ . "/../../templates/alunos/form.tpl.html";
+      include __DIR__ . "/../../templates/professores/form.tpl.html";
 
      }
   ?>

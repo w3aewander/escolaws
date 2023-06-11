@@ -11,17 +11,19 @@
       <div class="card-body">
         <div class="form-group">
           <label for="nome"></label>
-          <input class="form-control" type="text" name="nome" id="nome"  value="<?=trim('%',$nome) ?? ''?>"
+          <input class="form-control" type="text" name="nome" id="nome"  value="<?=trim($nome) ?? ''?>"
             placeholder="nome ou parte do nome do curso aqui...">
         </div>
         <div class="form-group">
-          <label for="data_inicio"></label>
-          <input class="form-control" type="date" na value="<?=$data_inicio?>"me="data_inicio ?? ''" id="data_inicio">
+          <label for="email"></label>
+          <input class="form-control" type="text" name="email" id="email"  value="<?=$email ?? ''?>"
+            placeholder="email a procurar...">
         </div>
         <div class="form-group">
-          <label for="data_termino"></label>
-          <input class="form-control" type="date" name="data_termino"  value="<?=$data_termino ??'' ?>" id="data_termino">
+          <label for="data_admissao"></label>
+          <input class="form-control" type="date" na value="<?=$data_admissao?>"me="data_admissao ?? ''" id="data_inicio">
         </div>
+  
       </div>
       <div class="card-footer">
         <p class="p-2">
@@ -37,8 +39,8 @@
       <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Data Inicio</th>
-        <th>Data Fim</th>
+        <th>Email</th>
+        <th>Data admissão</th>
       </tr>
     </thead>
     <tbody>
@@ -46,8 +48,8 @@
               echo "<tr>
                 <td>{$row->id}</td>
                 <td>{$row->nome}</td>
-                <td>{$row->data_inicio}</td>
-                <td>{$row->data_termino}</td>
+                <td>{$row->email}</td>
+                <td>{$row->data_admissao}</td>
               </tr>";
               } ?>
     </tbody>

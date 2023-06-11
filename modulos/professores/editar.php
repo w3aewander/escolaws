@@ -21,11 +21,11 @@ if ($metodo == 'POST') {
 
   if ($codigo) {
 
-    include __DIR__ . "/../../modulos/alunos/alterar.php";
+    include __DIR__ . "/../../modulos/professores/alterar.php";
 
   } else {
 
-    include __DIR__  . "/../../modulos/alunos/incluir.php";
+    include __DIR__  . "/../../modulos/professores/incluir.php";
 
   }
 } else {
@@ -39,7 +39,7 @@ if ($metodo == 'POST') {
   $stm->close();
   $conn->close();
 
-  include __DIR__ .  "/../../templates/alunos/editar.tpl.html";
+  include __DIR__ .  "/../../templates/professores/editar.tpl.html";
 }
 
 include __DIR__ .  "/../../includes/footer.php";

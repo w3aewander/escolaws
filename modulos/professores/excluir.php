@@ -16,7 +16,7 @@ include __DIR__ . "/../../libs/conexao.php";
   <div class="card mb-4">
     <div class="card-header">
       <div class="card-title">
-        <h4><i class="icon-excluir fa-trash"></i> Exclusão de aluno</h4>
+        <h4><i class="icon-excluir fa-trash"></i> Exclusão de professor</h4>
       </div>
     </div>
     <div class="card-body">
@@ -28,21 +28,21 @@ include __DIR__ . "/../../libs/conexao.php";
 
       $metodo = $_SERVER['REQUEST_METHOD'];
 
-      $matricula = $_REQUEST['id'] ?? '';
+      $codigo = $_REQUEST['id'] ?? '';
 
 
-      if ($matricula) {
+      if ($codigo) {
 
-        $sql = "delete from alunos where id = ?";
+        $sql = "delete from professores where id = ?";
         $stm = mysqli_prepare($conn, $sql);
-        $stm->bind_param('i', $matricula);
+        $stm->bind_param('i', $codigo);
 
         $stm->execute();
 
         if (!$stm->affected_rows) {
           mostrarAlerta("alert-warning", "icon-dislike", "Não foi possível excluir o registro. Certifique-se que ele existe na base de dados.");
         } else {
-          mostrarAlerta("alert-success", "icon-like", "Os dados do aluno com a matricula $matricula foram excluídos da base de dados..");
+          mostrarAlerta("alert-success", "icon-like", "Os dados do professor com código $codigo foram excluídos da base de dados..");
         }
 
         $stm->close();
@@ -52,9 +52,9 @@ include __DIR__ . "/../../libs/conexao.php";
       } else {
 
         echo "<form action='{$_SERVER["PHP_SELF"]}' method='POST'>
-          <label for='id'>Matrícula/ID</label>
+          <label for='id'>Código/ID</label>
           <div class='input-group'>
-              <input class='form-control' type='number' name='id' id='id' value='{$matricula}'>
+              <input class='form-control' type='number' name='id' id='id' value='{$codigo}'>
               <button class='btn btn-danger' type='submit'><i class='fa fa-trash'></i> Excluir</button>
           </div>
         </form>";

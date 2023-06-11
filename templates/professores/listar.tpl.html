@@ -5,15 +5,15 @@
       <thead>
          <tr>
             <th class="bg-secondary" colspan="6">
-               <i class="fa fa-list"></i> Listagem de Alunos
+               <i class="fa fa-list"></i><i class="icon-professores"></i> Listagem de Professores
             </th>
          </tr>
          <tr>
-            <th align="start">Matricula</th>
+            <th align="start">Código</th>
             <th align="start">Nome</th>
             <th align="start">Email</th>
-            <th align="start">Data matrícula</th>
-            <th align="start">Curso</th>
+            <th align="start">Data admissão</th>
+            
             <th align="start">Operações</th>
          </tr>
       </thead>
@@ -27,8 +27,8 @@
                   echo "<td align='start'>{$row['id']}</td>";
                   echo "<td align='start'>{$row['nome']}</td>";
                   echo "<td align='start'>{$row['email']}</td>";
-                  echo "<td align='start'>{$row['data_matricula']}</td>";
-                  echo "<td align='start'>{$row['curso']}</td>";
+                  echo "<td align='start'>{$row['data_admissao']}</td>";
+                 
                   echo "<td align='start'>
                            <a href='editar.php?id={$row["id"]}' class='btn btn-info btn-sm'><i class='fa fa-edit'></i> Editar </a> 
                            <a href='excluir.php?id={$row["id"]}' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i> Excluir </a> 

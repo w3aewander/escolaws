@@ -3,8 +3,9 @@
 include __DIR__ . "/../../libs/conexao.php";
 
 
-$sql = "select a.id, a.nome, a.email, a.data_matricula, a.curso_id, c.nome as curso 
-        from alunos a inner join curso c on a.curso_id = c.id ";
+$sql = "select p.id, p.nome, p.email, 
+        date_format(p.data_admissao, '%d/%m/%Y') as data_admissao 
+        from professores p";
 
 //statement - declaração
 $stm = mysqli_prepare($conn,  $sql);
@@ -14,7 +15,7 @@ $stm->execute();
 
 $result = $stm->get_result();
 
-include __DIR__ .  "/../../templates/alunos/listar.tpl.html";
+include __DIR__ .  "/../../templates/professores/listar.tpl.html";
 
 $result->close();
 
