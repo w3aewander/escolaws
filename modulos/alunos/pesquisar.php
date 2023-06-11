@@ -9,8 +9,16 @@ include __DIR__ . "/../../libs/conexao.php";
 $nome = $_REQUEST['nome'] ?? '';
 $email = $_REQUEST['email'] ?? '';
 
-$nome = '%'.$nome.'%';
-$email = '%'.$email.'%';
+if ( $nome ){
+    $nome = '%'.$nome.'%';
+    $email = 'naoinformado@email.com';
+} else if  ( $email ){
+    $email = '%'.$email.'%';
+    $nome = 'não informado';
+} else if ( $nome && $email){
+    $nome = '%'.$nome.'%';
+    $email = '%'.$email.'%';
+}
 
 $sql = 'select a.id, a.nome,a.email, a.data_matricula, a.curso_id, c.nome as curso
         from alunos a 
