@@ -19,7 +19,7 @@ $uri = $_SERVER['REQUEST_URI'];
 $arr_qs = explode('&', $_SERVER['QUERY_STRING']);
 
 
-$sql = 'select * from curso where id = ? 
+$sql = 'select * from cursos where id = ? 
         or nome like ? 
         or data_inicio = ? 
         or data_termino = ?';

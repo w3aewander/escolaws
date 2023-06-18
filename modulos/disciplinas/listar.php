@@ -1,13 +1,23 @@
 <?php 
 
-include __DIR__ . "/../../config/config.inc.php";
+include __DIR__  . '/../../libs/conexao.php';
 
-include __DIR__ .  "/../../includes/header.php";
+$sql = "select * from disciplinas";
 
-include __DIR__ . "/../../database/dados.php";
+$stm = mysqli_prepare($conn, $sql);
+$stm->execute();
+
+$disciplinas = $stm->get_result();
 
 include __DIR__ .  "/../../templates/disciplinas/listar.tpl.html";
 
-include __DIR__ .  "/../../includes/footer.php";
+
+$disciplinas->close();
+
+$stm->close();
+
+$conn->close();
+
+
 
 ?>

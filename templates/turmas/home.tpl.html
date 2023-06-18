@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h4><i class="icon-academico"></i> Módulo turmas</h4>
+
+    <div class="d-flex flex-row gap-1 py-2">
+
+        <?php foreach($menu_turmas as $menu ){ ?>
+
+        <div class="list-group-item">
+            <a class="btn btn-block btn-danger" href="<?=$menu['link']?>">
+                <?=$menu['icone']?>
+            </a>
+        </div>
+
+        <?php } ?>
+
+        <?php include __DIR__ . '/../../modulos/turmas/listar.php'; ?>
+        
+    </div>
+
+
+</div>

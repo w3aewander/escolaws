@@ -16,7 +16,7 @@
         
         include __DIR__ . "/../../libs/conexao.php";
 
-        $sql = "select * from curso";
+        $sql = "select * from cursos";
         
         $stm = mysqli_prepare($conn, $sql);
         $stm->execute();

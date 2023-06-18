@@ -1,0 +1,37 @@
+<div class="container">
+  <form action="<?=$_SERVER['PHP_SELF']?>">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-title">
+          <h4><i class="fa fa-binoculars"></i> Pesquisar</h4>
+          <p class="alert alert-info">Digite o nome ou parte do nome do curso e demais campos se necessário para iniciar
+            a pesquisa.</p>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="nome"></label>
+          <input class="form-control" type="text" name="nome" id="nome" value="<?=@trim('%',$nome) ?? ''?>"
+            placeholder="nome ou parte do nome do curso aqui...">
+        </div>
+        <div class="form-group">
+          <label for="data_inicio"></label>
+          <input class="form-control" type="date" value="<?=$data_inicio?>" value="data_inicio ?? ''" id="data_inicio">
+        </div>
+        <div class="form-group">
+          <label for="data_termino"></label>
+          <input class="form-control" type="date" name="data_termino" value="<?=$data_termino ??'' ?>"
+            id="data_termino">
+        </div>
+      </div>
+      <div class="card-footer">
+        <p class="p-2">
+          <button class="btn btn-primary btn-secondary"><i class="fa fa-search"></i> Pesquisar</button>
+        </p>
+      </div>
+    </div>
+  </form>
+
+  <?php include __DIR__ . '/../../modulos/turmas/listar.php'; ?>
+
+</div>

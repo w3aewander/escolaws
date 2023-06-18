@@ -32,21 +32,12 @@ include __DIR__ . "/../../libs/conexao.php";
     $data_termino = $_POST["data_termino"];
 
     if ($codigo) {
-      //se o código for informado então a query será para atualizar.
-      $sql = "update curso 
-              set nome = ?, 
-              data_inicio=?, 
-              data_termino=? where id = ?";
-
-      $stm = mysqli_prepare($conn, $sql);
-      
-      $stm->bind_param('ssss', $nome, $data_inicio, $data_termino, $codigo);
+      include __DIR__ . "/alterar.php";
     } else {
-      $sql = "insert into curso(nome, data_inicio, data_termino) values (?,?,?)";
+      $sql = "insert into cursos(nome, data_inicio, data_termino) values (?,?,?)";
       $stm = mysqli_prepare($conn, $sql);
       $stm->bind_param('sss', $nome, $data_inicio, $data_termino);
     }
-
 
     if (!$stm->execute()) {
 

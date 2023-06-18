@@ -115,3 +115,7 @@
     echo $alerta;
  }
  
+
+ function cargaHorariaCurso(String $curso): int{
+   return 0;
+ }

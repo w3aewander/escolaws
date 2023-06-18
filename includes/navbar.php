@@ -17,6 +17,7 @@
           <i class="fas fa-puzzle-piece"></i> Módulos
           </a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/turmas"><i class="icon-academico"></i> Turmas</a></li>
             <li><a class="dropdown-item" href="<?=$dir?>modulos/cursos"><i class="icon-curso"></i> Cursos</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?=$dir?>modulos/alunos"><span class="icon-aluno"></span> Alunos</a></li>

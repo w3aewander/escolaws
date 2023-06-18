@@ -1,19 +1,15 @@
 <div class="container">
 
-    <h4>Módulo Disciplinas</h4>
-    <p>Agora usando a convenção modular...</p>
+    <h4><i class="icon-curso fa-fw"></i> Módulo cursos</h4>
 
-    
-    <ul class="d-flex flex-row gap-2">
-        
-        <?php foreach($menu_disciplinas as $menu=>$link ){ ?>
+    <div class="d-flex flex-row gap-1 py-2">
+
+        <?php foreach($menu_cursos as $menu ){ ?>
             
-            <li class="list-group-item"><a class="btn btn-block btn-danger" href="<?=$link?>"><?=$menu?></a></li>
+            <div class="list-group-item"><a class="btn btn-block btn-danger" href="<?=$menu['link']?>"><?=$menu['icone']?></a></div>
             
         <?php } ?>
-        
-    </ul>
-   
-   
-        <img src="<?=$dir?>/img/disciplinas.png">
+    </div>
+
+    <?php require __DIR__ . '/../../modulos/disciplinas/listar.php'; ?>
 </div>

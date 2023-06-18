@@ -14,20 +14,20 @@ include __DIR__ .  "/../../database/dados.php";
 ?>
 <div class="container">
 
-<h1>Exclusão de aluno</h1>
+<h1>Exclusão de turma</h1>
 
   <!-- CRUD -->
   <!-- CREATE, RETRIEVE, UPDATE0, DELETE -->
   
  <?php 
  
- $codigo = $_REQUEST['codigo'] ?? ""; 
+ $id = $_REQUEST['id'] ?? ""; 
 
  
  if ( $codigo ){
    echo "Os dados da turma com o código $codigo serão excluídos da base de dados.";
    //die("Finalizei: $matricula");
-   excluirDadosTurma($codigo);
+
   } else {
     echo "Nenhum código informada para exclusão.";
   }

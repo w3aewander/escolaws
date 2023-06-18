@@ -2,6 +2,6 @@
     "dbhost": "localhost",
     "dbport": 3306,
     "dbuser": "root",
-    "dbpass": "",
-    "dbname": "cursophp"
+    "dbpass": "r00t@Abc",
+    "dbname": "escolaws"
 }

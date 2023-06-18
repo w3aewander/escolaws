@@ -1,26 +1,19 @@
 <?php
-// ele tenta incluir um arquivo  
-//cabelalho: 
- 
-  include __DIR__ . "/../../config/config.inc.php";
-  
-  include __DIR__ . "/../../database/dados.php";
-  
-  include __DIR__ .  "/../../includes/header.php";
+// ele tenta incluir um arquivo
+//cabelalho:
 
-  //incluindo o arquivo home.. arquivo inicial
+include __DIR__ . "/../../config/config.inc.php";
 
-  $menu_turmas = [
-    "Inicio" => "$dir/index.php",
-    "Incluir" => "$dir/modulos/turmas/incluir.php",
-    "Excluir" => "$dir/modulos/turmas/excluir.php",
-    "Listar" => "$dir/modulos/turmas/listar.php",
-    "Pesquisar" => "$dir/modulos/turmas/pesquisar.php", 
-  ];
+include __DIR__ . "/../../includes/header.php";
 
-  include  __DIR__ . "/../../templates/turmas/home.tpl.html";
-  
-  include __DIR__ .  "/../../templates/turmas/listar.tpl.html";
+$menu_turmas = [
+    "Inicio" => ["link" => "$dir" . "index.php", "icone" => "<i class='fa fa-home fa-fw'></i>"],
+    "Incluir" => ["link" => "$dir" . "modulos/turmas/incluir.php", "icone" => "<i class='fa fa-plus-circle fa-fw'></i>"],
+    "Excluir" => ["link" => "$dir" . "modulos/turmas/excluir.php", "icone" => "<i class='fa fa-minus-circle fa-fw'></i>"],
+    "Pesquisar" => ["link" => "$dir" . "modulos/turmas/pesquisar.php", "icone" => "<i class='fa fa-search fa-fw'></i>"],
+];
 
-  //incluindo o arquivo de rodapé...
-  include __DIR__ . "/../../includes/footer.php";
+include __DIR__ . "/../../templates/turmas/home.tpl.html";
+
+//incluindo o arquivo de rodapé...
+include __DIR__ . "/../../includes/footer.php";

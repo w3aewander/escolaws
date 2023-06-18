@@ -6,11 +6,18 @@
   // ele tenta incluir um arquivo
   //cabelalho: 
 
-  $codigo = $_REQUEST['codigo'];  //recebe tanto $_GET quanto $_POST
-  $nome = $_REQUEST['nome'];
+  $codigo       = $_REQUEST["codigo"];
+  $nome         = $_REQUEST["nome"];
+  $data_inicio  = $_REQUEST["data_inicio"];
+  $data_termino = $_REQUEST["data_termino"];
 
 
-  $dados = "$codigo;$nome" . "\n";;
+    //se o código for informado então a query será para atualizar.
+    $sql = "update cursos 
+            set nome = ?, 
+            data_inicio=?, 
+            data_termino=? where id = ?";
 
-  alterarDados($codigo, __DIR__ . "/../../database/cursos.csv", $dados);
-
+    $stm = mysqli_prepare($conn, $sql);
+    
+    $stm->bind_param('ssss', $nome, $data_inicio, $data_termino, $codigo);

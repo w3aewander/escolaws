@@ -7,11 +7,7 @@
   //cabelalho: 
 
   include __DIR__ . "/../../config/config.inc.php";
-  
   include __DIR__ .  "/../../includes/header.php";
-
-  //include __DIR__ .  "/../../database/dados.php";
-
   include __DIR__ . "/../../libs/conexao.php";
 
   $metodo = $_SERVER['REQUEST_METHOD'];
@@ -24,7 +20,11 @@
 
   }
   //evitar sql_injection --- use uma consulta preparada.
-  $sql = "select * from curso where id = ?";
+  $sql = "select id, nome, 
+          data_inicio, 
+          data_termino, 
+          carga_horaria 
+          from cursos where id = ?";
 
   $stm = mysqli_prepare($conn, $sql);
 

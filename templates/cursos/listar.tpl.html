@@ -1,0 +1,46 @@
+<div class="col-sm-12 col-8">
+
+    <table class='table table-bordered table-hover table-striped'>
+
+        <thead>
+            <tr>
+                <th style='background-color: gray;' colspan='6'>Tabela de Cursos</th>
+            </tr>
+            <tr>
+                <th>ID</th>
+                <th>Curso</th>
+                <th>Inicio</th>
+                <th>Término</th>
+                <th>Carga horária</th>
+                <th>Operação</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <?php while (  $row = $result->fetch_object() ){ ?>
+
+            <tr>
+                <td><?="{$row->id}"?></td>
+                <td><?="{$row->nome}"?></td>
+                <td><?="{$row->inicio}"?></td>
+                <td><?="{$row->termino}"?></td>
+                <td></td>
+                <td>
+                    <a class='btn btn-info btn-sm' href='editar.php?id=<?="{$row->id}"?>'><i class='fa fa-edit'></i>
+                        Editar</a>
+                    <a class='btn btn-danger btn-sm' href='excluir.php?id=<?="{$row->id}"?>'>
+                        <div class='fa fa-trash'></div>Excluir
+                    </a>
+                </td>
+            </tr>
+
+            <?php } ?>
+
+        </tbody>
+
+
+    </table>
+</div>
+
+</div>

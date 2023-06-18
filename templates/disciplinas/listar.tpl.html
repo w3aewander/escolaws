@@ -1,30 +1,30 @@
-<div class="container">
 
-    <h4>Listagem de Disciplinas</h4>
     
     <table class="table table-hover table-striped">
     
        <thead>
+         <tr>
+            <th colspan="6" class="bg-secondary"><i class="fa fa-list"></i> Listagem de Disciplinas</th>       
+         </tr>
           <tr>
              <th align="start">Código</th>
              <th align="start">Nome</th>  
+             <th align="start">Carga horária</th>
              <th align="start">Operações</th>       
           </tr>
        </thead>
       
        <tbody>
-            <?php
-         
-            
-               foreach ($disciplinas as $disciplina) {
-                  $codigo = $disciplina['codigo'];
+            <?php foreach ($disciplinas as $disciplina) { 
+
                   echo "<tr>";
-                  echo "<td align='start'>$codigo</td>";                  
-                  echo "<td align='start'>".$disciplina['nome']."</td>";
-                  
+                  echo "<td align='start'>{$disciplina['id']}</td>";                  
+                  echo "<td align='start'>{$disciplina['nome']}</td>";
+                  echo "<td align='start'>{$disciplina['carga_horaria']} hora(s)</td>";
+
                   echo "<td align='start'>
-                           <a href='editar.php?codigo=$codigo' class='btn btn-info btn-sm'> Editar </a> 
-                           <a href='excluir.php?codigo=$codigo'' class='btn btn-danger btn-sm'> Excluir </a> 
+                           <a href='editar.php?id={$disciplina["id"]}' class='btn btn-info btn-sm'> Editar </a> 
+                           <a href='excluir.php?id={$disciplina["id"]}' class='btn btn-danger btn-sm'> Excluir </a> 
                         </td>";
                   echo "</tr>";
               }
@@ -34,4 +34,3 @@
     
     </table>
     
-    </div>

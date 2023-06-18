@@ -1,24 +1,24 @@
-<form id="form-incluir-curso" name="form-incluir-curso" action="incluir.php" method="POST">
+<form id="form-incluir-turma" name="form-incluir-turma" action="<?=$_SERVER['PHP_SELF']?>" method="POST">
 
   <div class="form-group">
-    <label for="codigo">Código</label>
-    <input class="form-control" type="number" id="codigo" name="codigo" value="<?=$curso['id'] ?? '0' ?>"
+    <label for="id">ID</label>
+    <input class="form-control" type="number" id="id" name="id" value="<?=$turma['id'] ?? '0' ?>"
       required="required" readonly="readonly">
   </div>
 
   <div class="form-group">
     <label for="nome">Nome</label>
-    <input class="form-control" type="text" id="nome" name="nome" value="<?=$curso['nome'] ?? ''?>" required="required">
+    <input class="form-control" type="text" id="nome" name="nome" value="<?=$turma['nome'] ?? ''?>" required="required">
   </div>
   <div class="form-group">
     <label for="data_inicio">Data de início:</label>
-    <input class="form-control" type="date" id="data_inicio" name="data_inicio" value="<?=$curso['data_inicio'] ?? ''?>"
+    <input class="form-control" type="date" id="data_inicio" name="data_inicio" value="<?=$turma['data_inicio'] ?? ''?>"
       required="required">
   </div>
   <div class="form-group">
     <label for="data_termino">Data término:</label>
     <input class="form-control" type="date" id="data_termino" name="data_termino"
-      value="<?=$curso['data_termino'] ?? ''?>" required="required">
+      value="<?=$turma['data_termino'] ?? ''?>" required="required">
   </div>
 
   <div class="my-2">

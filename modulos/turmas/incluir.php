@@ -1,68 +1,53 @@
 <?php
 /**
- * Página inicial
+ * Incluir alunos
+ * @author Wanderlei Silva do Carmo <wander.silva@gmail.com>
+ * @version 1.0
  *  
 */
-  // ele tenta incluir um arquivo
-  //cabelalho:
   
   include __DIR__ . "/../../config/config.inc.php";
   include __DIR__ . "/../../includes/header.php";
-  include_once __DIR__ . "/../../database/dados.php";
+
+  include __DIR__ . "/../../libs/conexao.php";
 
   ?>
 
   <div class="container">
 
-  <h4>Inclusão de alunos no cadastro</h4>
+  <h4>Inclusão de turma no cadastro</h4>
 
   <?php
  
      //variável para "pegar" o método de envio da requisição (request)
      $metodo =  $_SERVER["REQUEST_METHOD"];
 
-     //verifica se o método é igual a  post...
-     if( $metodo == "POST" ){
+       $nome      = $_POST["nome"];
+       $data_inicio = $_POST["data_inicio"];
+       $data_termino = $_POST["data_termino"];
+    
 
-      $matricula = $_POST["matricula"];
-      $curso = $_POST["curso"];
-      $nome = $_POST["nome"];
-      $data_nascimento = $_POST["data_nascimento"];
- 
- 
-      echo "Dados recebidos:<br>";
-      echo "Matricula:" . $matricula .  "<br>";
-      echo "Curso:" . $curso . "<br>";
-      echo "Nome:" . $nome . "<br>";
-      echo "Data de nascimento:" . $data_nascimento . "<br>";
+      $sql = " insert into turmas(nome, data_inicio, data_termino) 
+               values(?,?,?);";
+    
+      $stm = mysqli_prepare($conn, $sql);
 
-      $info = "$matricula;$curso;$nome;$data_nascimento" ."\n";
+      $stm->bind_param('sss', $nome, $data_inicio, $data_termino);
+
+      if ( ! $stm->execute() ){
+         echo "<div class='alert alert-warning'>Não foi possível incluir o registro.</div>";
+      }
+
+      echo "<div class='alert alert-success' style='width: 70%'><i class='icon-like'></i> Registro incluido com sucesso.</div>";
       
-      $path = __DIR__ . "/../../database/alunos.csv";
+      $stm->close();
+      $conn->close();
 
-      //Inclusão em um arquivo...
-      //file_put_contents($path, $info, FILE_APPEND);
-
-      //Também poderia ser:
-      $fp = fopen($path, 'a');
-      fwrite($fp, $info);
-      fclose($fp);
-
-      //$lista = file_get_contents(__DIR__ . "/../../database/alunos.csv");
-
-      header("location: $dir/modulos/alunos", true);
-
+      //redireciona para o index do módulo após 2 segundos...
+      header('refresh: 2; index.php', true);
   
-     } 
-       //senão...
-       else 
-     { 
-       
-      include __DIR__ . "/../../templates/alunos/form.tpl.html";
-
-     }
+   
   ?>
-
 
   <?php
   //incluindo o arquivo de rodapé...

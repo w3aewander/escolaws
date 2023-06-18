@@ -4,7 +4,7 @@ include __DIR__ . "/../../libs/conexao.php";
 
 
 $sql = "select a.id, a.nome, a.email, a.data_matricula, a.curso_id, c.nome as curso 
-        from alunos a inner join curso c on a.curso_id = c.id ";
+        from alunos a inner join cursos c on a.curso_id = c.id ";
 
 //statement - declaração
 $stm = mysqli_prepare($conn,  $sql);

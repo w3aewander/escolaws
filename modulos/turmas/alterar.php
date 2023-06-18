@@ -7,12 +7,22 @@
   //cabelalho: 
 
 
-  $codigo = $_REQUEST['codigo'];  //recebe tanto $_GET quanto $_POST
-  $nome = $_REQUEST['nome'];
+  include __DIR__ . "/../../libs/conexao.php";
 
-  $dados = "$curso;$nome" . "\n";
+  $sql = 'update turmas 
+         set nome = ?, data_inicio = ?, data_termino =  ? where id = ?';
 
-  alterarDadosTurma($curso, $dados);
+  $stm = mysqli_prepare($conn, $sql);
+  $stm->bind_param('sssi', $nome, $data_inicio, $data_termino, $id);
+
+  $stm->execute();
+
+  $stm->close();
+
+  $conn->close();
+
+  header('refresh: 2; index.php');
+
 
 
 

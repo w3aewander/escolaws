@@ -21,7 +21,7 @@ include __DIR__ . "/../../libs/conexao.php";
 
   if ($codigo) {
   
-    $sql = 'delete from curso where id=?';
+    $sql = 'delete from cursos where id=?';
 
     $stm = mysqli_prepare($conn, $sql);
 

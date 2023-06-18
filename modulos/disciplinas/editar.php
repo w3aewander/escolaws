@@ -1,41 +1,56 @@
 <?php
 /**
  * Página inicial
- *  
-*/
-  // ele tenta incluir um arquivo
-  //cabelalho: 
+ *
+ */
+// ele tenta incluir um arquivo
+//cabelalho:
 
-  include __DIR__ . "/../../config/config.inc.php";
-  
-  include __DIR__ .  "/../../includes/header.php";
+include __DIR__ . "/../../config/config.inc.php";
 
-  include __DIR__ .  "/../../database/dados.php";
-  
-  $matricula = $_GET['matricula'] ?? '';
+include __DIR__ . "/../../includes/header.php";
 
-  
-  if ( $matricula ){
-    $filtro = array_filter($alunos, function($m){
-           
-        return $m['matricula'] == $_GET['matricula'] ;
-            
-    });
-    
-    foreach ( $filtro as $aluno){
-        //var_dump($aluno);
-        echo "<div class='px-4'>";
-        echo "Tamanho do arquivo: " . filesize($path);
-        echo "<br>";
-        echo "Matricula encontrada: " . $aluno['nome'] ; 
-        echo "</div>";
-     }
+include __DIR__ . '/../../libs/conexao.php';
 
-   }
-    
-    
-    include __DIR__ .  "/../../templates/alunos/editar.tpl.html";
+$id = $_REQUEST['id'] ?? '';
 
-    include __DIR__ .  "/../../includes/footer.php";
+$sql = "select * from disciplinas where id = ?";
+
+$stm = mysqli_prepare($conn, $sql);
+$stm->bind_param('i', $id);
+$stm->execute();
+
+$result = $stm->get_result();
+
+$disciplina = $result->fetch_assoc();
+
+$stm->close();
+$conn->close();
 
 
+$metodo = $_SERVER['REQUEST_METHOD'];
+
+$id = $_REQUEST['id'] ?? '';
+$nome = $_REQUEST['nome'];
+$carga_horaria = $_REQUEST['carga_horaria'];
+
+
+if ($metodo == 'POST') {
+
+    if ($id) {
+
+        include __DIR__ . "/alterar.php";
+
+    } else {
+
+        include __DIR__ . "/incluir.php";
+
+    }
+
+} else {
+
+    include __DIR__ . "/../../templates/disciplinas/editar.tpl.html";
+
+}
+
+include __DIR__ . "/../../includes/footer.php";
