@@ -7,7 +7,7 @@ include __DIR__ . "/../../config/config.inc.php";
   
 include __DIR__ .  "/../../includes/header.php";
 
-include __DIR__ .  "/../../database/dados.php";
+include __DIR__ .  "/../../libs/libws.php";
 
 
 
@@ -23,7 +23,7 @@ include __DIR__ .  "/../../database/dados.php";
  
  $id = $_REQUEST['id'] ?? ""; 
 
- 
+ mostrarAlerta('alert-warning','icon-dislike','Turma não deve ser excluída nesta interface pois há tabelas dependentes.');
  if ( $codigo ){
    echo "Os dados da turma com o código $codigo serão excluídos da base de dados.";
    //die("Finalizei: $matricula");
