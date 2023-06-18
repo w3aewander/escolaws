@@ -9,17 +9,21 @@
           <tr>
              <th align="start">Código</th>
              <th align="start">Nome</th>  
+             <th align="start">Data inicio</th> 
+             <th align="start">Data término</th> 
              <th align="start">Carga horária</th>
              <th align="start">Operações</th>       
           </tr>
        </thead>
       
        <tbody>
-            <?php foreach ($disciplinas as $disciplina) { 
+            <?php while ($disciplina = $disciplinas->fetch_assoc()) { 
 
                   echo "<tr>";
                   echo "<td align='start'>{$disciplina['id']}</td>";                  
                   echo "<td align='start'>{$disciplina['nome']}</td>";
+                  echo "<td align='start'>1disciplina['data_inicio']</td>";
+                  echo "<td align='start'>{$disciplina['data_termino']}</td>";
                   echo "<td align='start'>{$disciplina['carga_horaria']} hora(s)</td>";
 
                   echo "<td align='start'>
