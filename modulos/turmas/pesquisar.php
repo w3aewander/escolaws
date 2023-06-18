@@ -30,6 +30,4 @@ $conn->close();
 
 include __DIR__ . "/../../templates/turmas/pesquisar.tpl.html";
 
-
-
 include __DIR__ . "/../../includes/footer.php";
