@@ -22,7 +22,7 @@ if ( $nome ){
 
 $sql = 'select a.id, a.nome,a.email, date_format(a.data_matricula, "%d/%m/%Y") as data_matricula, a.curso_id, c.nome as curso
         from alunos a 
-        inner join curso c 
+        inner join cursos c 
         on a.curso_id = c.id 
         where a.nome like ? or a.email like ?';
 
