@@ -1,7 +1,0 @@
-{
-    "dbhost": "escolaws.mysql.dbaas.com.br",
-    "dbport": 3306,
-    "dbuser": "escolaws",
-    "dbpass": "r00t@Abc",
-    "dbname": "escolaws"
-}
