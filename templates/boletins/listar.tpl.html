@@ -1,0 +1,46 @@
+
+<h1>
+   Aqui vem a opção listar do módulo boletins...
+</h1>
+
+   <!-- <table class="table table-bordered table-hover table-striped">
+
+      <thead>
+         <tr>
+            <th class="bg-secondary" colspan="6">
+               <i class="fa fa-list"></i> Listagem de Alunos
+            </th>
+         </tr>
+         <tr>
+            <th align="start">Matricula</th>
+            <th align="start">Nome</th>
+            <th align="start">Email</th>
+            <th align="start">Data matrícula</th>
+            <th align="start">Curso</th>
+            <th align="start">Operações</th>
+         </tr>
+      </thead>
+
+      <tbody>
+         <?php
+         
+               while ($row = $result->fetch_assoc()) {
+                  
+                  echo "<tr>";
+                  echo "<td align='start'>{$row['id']}</td>";
+                  echo "<td align='start'>{$row['nome']}</td>";
+                  echo "<td align='start'>{$row['email']}</td>";
+                  echo "<td align='start'>{$row['data_matricula']}</td>";
+                  echo "<td align='start'>{$row['curso']}</td>";
+                  echo "<td align='start'>
+                           <a href='editar.php?id={$row["id"]}' class='btn btn-info btn-sm'><i class='fa fa-edit'></i> Editar </a> 
+                           <a href='excluir.php?id={$row["id"]}' class='btn btn-danger btn-sm'><i class='fa fa-trash'></i> Excluir </a> 
+                        </td>";
+                  echo "</tr>";
+              }
+       
+           ?>
+      </tbody>
+
+   </table> -->
+

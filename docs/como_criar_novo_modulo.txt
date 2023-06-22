@@ -1,0 +1,8 @@
+1 - criar um subdiretório/subpasta com o nome do módulo desejado na diretório de módulos.
+2 - copiar a estrutura de um módulo exitente.
+3 - criar um subdiretório/subpasta com nome do módulo no diretório de templates.
+4 - copiar a estrutura de um template existente.
+5 - criar uma entrada na barra de navegação (criar o menu)
+6 - alterar o vetor para o nome referente ao módulo.
+7 - alterar o arquivo home.tpl.html do template do módulo para que leia o menu ajustado para o módulo, 
+     Ex. $menu_xxxx - onde xxxx é o nome do módulo.
