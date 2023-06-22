@@ -25,6 +25,7 @@
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="<?=$dir?>modulos/disciplinas"><span class="icon-disciplina"></span> Disciplinas</a></li>
             <li><a class="dropdown-item" href="<?=$dir?>modulos/pautas"><span class="icon-pauta"></span> Pautas</a></li>
+            <li><a class="dropdown-item" href="<?=$dir?>modulos/boletins"><span class="fa fa-bag"></span> Boletins</a></li>
 
           </ul>
         </li>
@@ -36,3 +37,5 @@
     </div>
   </div>
 </nav>
+
+
