@@ -1,7 +1,7 @@
 {
     "dbhost": "localhost",
     "dbport": 3306,
-    "dbuser": "escolaws",
+    "dbuser": "root",
     "dbpass": "",
-    "dbname": "escolaws"
-}
+    "dbname": "cursophp"
+} 
