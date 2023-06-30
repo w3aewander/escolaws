@@ -19,7 +19,8 @@ const APP_VERSION = "2023.06.19-MySQL";
 //$dir =  "http://20.206.74.94:8080/" ;
 //$dir =  "http://localhost/escolaws/" ;
 
-$dir =  $_SERVER['SERVER_NAME']. "/escolaws/" ;
+$dir =  "http://{$_SERVER['HTTP_HOST']}/escolaws/" ;
+
 
 //autenticação
 if ( ! $_SESSION['AUTHENTICATED'] || ! $_SESSION['AUTHENTICATED'] ){
