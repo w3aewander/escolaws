@@ -1,0 +1,53 @@
+@startuml escolaws 
+class Turma {
+    -Integer
+    -String nome
+    -Date dataInicio
+    -Date dataTermino
+}
+class Curso {
+    -Integer id
+    -String nome
+    -Integer cargaHoraria
+
+    +List Disciplina
+}
+
+class Disciplina {
+    -Integer id
+    -String nome
+    -Integer cargaHoraria
+}
+
+class Professor{
+    -Integer id
+    -String nome
+}
+
+class ProfessorTurma {
+    -Integer turmaId
+    -Integer  professorId
+}
+
+class ProfessorDisciplina{
+    -Integer professorId
+    -Integer  disciplinaId
+}
+
+class Aluno {
+    -Integer id
+    -String nome
+    -Integer cursoId
+    -String matricula
+    -DateTime dataMatricula
+}
+
+Turma -- Curso: 1..1
+ProfessorTurma -- Professor: n..m
+ProfessorTurma -- Turma: n..m
+ProfessorDisciplina -- Disciplina: 1..n
+Aluno -- Curso: 1..1
+
+
+
+@enduml

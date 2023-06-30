@@ -15,7 +15,7 @@
 
   <div class="container">
 
-  <h4>Inclusão de alunos no cadastro</h4>
+  <h4>Incluir informações no boletim</h4>
 
   <?php
  

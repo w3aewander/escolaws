@@ -3,20 +3,23 @@
 include __DIR__ . "/../../libs/conexao.php";
 
 
-// $sql = "select a.id, a.nome, a.email, a.data_matricula, a.curso_id, c.nome as curso 
-//         from alunos a inner join cursos c on a.curso_id = c.id ";
+$sql = "select a.id, a.nome as alunos, b.id as boletim
+        from escolaws.boletins b 
+        inner join escolaws.alunos a 
+        on b.aluno_id = a.id ";
 
-// //statement - declaração
-// $stm = mysqli_prepare($conn,  $sql);
+//statement - declaração
+$stm = mysqli_prepare($conn,  $sql);
 
-// //executar a consulta.
-// $stm->execute();
+//executar a consulta.
+$stm->execute();
 
-// $result = $stm->get_result();
+$boletim = $stm->get_result();
+
 
 include __DIR__ .  "/../../templates/boletins/listar.tpl.html";
 
-// $result->close();
+$boletim->close();
 
-// $stm->close();
-// $conn->close();
+$stm->close();
+$conn->close();

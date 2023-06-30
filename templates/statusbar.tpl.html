@@ -3,7 +3,7 @@
     <div class="d-flex  justify-content-between w-100">
 
         <div class="div-info-usuario">
-            <strong>Usuário:</strong> visitante
+            <strong>Usuário:</strong> <?=$_SESSION['usuario']->nome ?? visitante ?> <?=$_SESSION['usuario']->perfil_id ??'' ?>
         </div>
 
         <div id="div-relogio">

@@ -90,11 +90,36 @@ drop table boletins;
 CREATE TABLE boletins(
    id integer not null PRIMARY KEY AUTO_INCREMENT,
    aluno_id INTEGER not null,
-   bimestre integer not null,
    disciplina_id int not null,
+   nota_1 float not null,
+   nota_2 float not null,
+   nota_3 float not null,
+   nota_4 float not null,
    constraint boletim_aluno_fk1 Foreign Key (aluno_id) REFERENCES alunos(id),
    constraint boletim_disciplina_fk1 Foreign Key (disciplina_id) REFERENCES disciplinas(id)
 );
+
+CREATE TABLE perfis(
+   id integer not null primary key AUTO_INCREMENT,
+   nome varchar(50) not null,
+   created_at timestamp not null default CURRENT_TIMESTAMP
+);
+
+CREATE TABLE usuarios (
+    id integer not null primary key AUTO_INCREMENT,
+    nome varchar(50),
+    email varchar(60) not null,
+    telefone varchar(14),
+    perfil_id integer not null,
+    password varchar(60),
+    constraint usuario_perfil_fk FOREIGN key (perfil_id) REFERENCES perfis(id),
+    ativo TINYINT(1),
+    created_at TIMESTAMP not null default CURRENT_TIMESTAMP);
+
+
+insert into perfis (nome) values('admin'),('professor'),('aluno');
+insert into usuarios(nome,email,password, perfil_id, ativo) 
+values('Wanderlei Silva','wander.silva@gmail.com','$2y$10$pUcvKT7UN5ZE7cTlRwcaL.SXx.8j8c7Uo58jgs3sPxETLpJqrLceu', 1, 1);
 
 
 INSERT INTO `alunos` (`id`, `nome`, `email`, `data_matricula`, `curso_id`, `created_at`) VALUES

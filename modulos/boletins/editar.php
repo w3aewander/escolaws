@@ -11,28 +11,34 @@ include __DIR__ . "/../../config/config.inc.php";
 include __DIR__ .  "/../../includes/header.php";
 include __DIR__ . "/../../libs/conexao.php";
 
-
-$matricula = $_REQUEST['id'] ?? '';
+$id = $_REQUEST['id'] ?? '';
 
 
 $metodo = $_SERVER['REQUEST_METHOD'];
 
 if ($metodo == 'POST') {
 
-  if ($matricula) {
+  if ($id) {
 
-    include __DIR__ . "/../../modulos/alunos/alterar.php";
+    include __DIR__ . "/../../modulos/boletins/alterar.php";
 
   } else {
 
-    include __DIR__  . "/../../modulos/alunos/incluir.php";
+    include __DIR__  . "/../../modulos/boletins/incluir.php";
 
   }
 } else {
 
-  $sql = "select * from alunos where id = ?";
+  $sql = "select a.id, 
+          a.nome as alunos, 
+          b.id as boletim
+            from escolaws.boletins b 
+            inner join escolaws.alunos a 
+            on b.aluno_id = a.id
+            where id = ? ";
+
   $stm = mysqli_prepare($conn, $sql);
-  $stm->bind_param('i', $matricula);
+  $stm->bind_param('i', $id);
   $stm->execute();
   $result = $stm->get_result();
   $aluno = $result->fetch_assoc();
