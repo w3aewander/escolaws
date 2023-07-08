@@ -4,8 +4,8 @@ include __DIR__ . "/../../libs/conexao.php";
 
 
 $sql = "select a.id, a.nome as alunos, b.id as boletim
-        from escolaws.boletins b 
-        inner join escolaws.alunos a 
+        from boletins b 
+        inner join alunos a 
         on b.aluno_id = a.id ";
 
 //statement - declaração

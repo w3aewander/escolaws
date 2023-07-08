@@ -86,7 +86,6 @@ CREATE TABLE
         constraint turma_curso_fk2 Foreign Key (curso_id) REFERENCES cursos(id)
     );
 
-drop table boletins;
 CREATE TABLE boletins(
    id integer not null PRIMARY KEY AUTO_INCREMENT,
    aluno_id INTEGER not null,
@@ -106,13 +105,13 @@ CREATE TABLE perfis(
 );
 
 CREATE TABLE usuarios (
-    id integer not null primary key AUTO_INCREMENT,
+    id integer not null primary key AUTO_INCREMENT, -- chave primária
     nome varchar(50),
     email varchar(60) not null,
     telefone varchar(14),
     perfil_id integer not null,
     password varchar(60),
-    constraint usuario_perfil_fk FOREIGN key (perfil_id) REFERENCES perfis(id),
+    constraint usuario_perfil_fk FOREIGN key (perfil_id) REFERENCES perfis(id), -- restrição.
     ativo TINYINT(1),
     created_at TIMESTAMP not null default CURRENT_TIMESTAMP);
 
@@ -147,3 +146,30 @@ INSERT INTO `turmas` (`id`, `nome`, `data_inicio`, `data_termino`, `created_at`)
 (2, 'TURMA A', '2023-06-21', '2023-05-23', '2023-06-21 23:25:12'),
 (3, 'teste 1', '2023-06-21', '2023-10-21', '2023-06-21 23:26:04'),
 (4, 'Turma Z', '2023-06-20', '2023-09-20', '2023-06-21 23:50:19');
+
+
+
+CREATE TABLE enderecos (
+     usuario_id integer not null,
+     cep varchar(8),
+     bairro varchar(100),
+     cidade varchar(50),
+     uf char(2),
+     constraint endereco_usuario_fk1 FOREIGN KEY(usuario_id) REFERENCES usuarios(id)
+);
+
+select id, nome from usuarios where nome = 'Wanderlei Silva';
+
+insert into enderecos (usuario_id, cep, bairro, cidade, uf) 
+values (1, '29043220', 'Santa Cecília', 'Vitória', 'ES' );
+
+select * from enderecos;
+
+insert into enderecos (usuario_id, cep, bairro, cidade, uf) 
+values (1, '29032050', 'Sao Pedro', 'Vitória', 'ES' );
+
+select u.id, u.nome, DATE_FORMAT(u.created_at, '%d/%m/%Y') `cadastrado em` , e.cep, e.bairro, 
+       concat(e.cidade,'/', e.uf) cidade 
+from enderecos e
+inner join usuarios u
+on e.usuario_id = u.id;
