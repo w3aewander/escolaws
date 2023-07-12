@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comandos SQL no PHP.
  */
@@ -7,9 +8,10 @@ $json = json_decode(file_get_contents("config.json"));
 
 $conexao = mysqli_connect($json->dbhost, $json->dbuser, $json->dbpass, $json->dbase);
 
-if ( ! $conexao ){
+if (!$conexao) {
     die('Não foi possível conectar o banco de dados.');
 }
+
 
 //para adicionar apenas um produto
 $sql = "INSERT INTO escolaws.produtos(descricao) values ( 'Produto 1' )";
@@ -17,7 +19,7 @@ $sql = "INSERT INTO escolaws.produtos(descricao) values ( 'Produto 1' )";
 //para adicionar vários produtos;
 //$sql = "INSERT INTO escolaws.produtos(descricao) values ( 'Produto 1' ), ('Produto 2'), ('Produto 3')";
 
-if ( mysqli_execute_query($conexao, $sql) ){
+if (mysqli_execute_query($conexao, $sql)) {
 
     echo "registro inserito com sucesso.";
 } else {
@@ -26,4 +28,3 @@ if ( mysqli_execute_query($conexao, $sql) ){
 }
 
 mysqli_close($conexao);
-

@@ -26,7 +26,7 @@ if ( $result =  mysqli_execute_query($conexao, $sql) ){
                          <td width='50' align='center'>{$row->id}</td>
                          <td>{$row->descricao}</td>
                          <td width='120' align='center'>
-                               <button onclick='editarProduto(\"{$row->id}\")'>Editar</button>
+                               <button onclick='editarProduto(\"{$row->id}\",\"{$row->descricao}\")'>Editar</button>
                                <button onclick='excluirProduto(\"{$row->id}\")'>Excluir</button>
                         </td>
                     </tr>";

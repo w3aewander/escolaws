@@ -6,9 +6,12 @@
 
 -- tabela turmas
 
+CREATE IF NOT EXISTS DABASE escolaws;
+
+USE escolaws;
 
 CREATE TABLE
-    IF NOT EXISTS turmas (
+    IF NOT EXISTS escolaws.turmas (
         id integer NOT NULL PRIMARY KEY AUTO_INCREMENT,
         nome varchar(50) NOT NULL,
         data_inicio date,

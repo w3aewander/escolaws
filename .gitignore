@@ -2,4 +2,4 @@ config/config.json
 config/config.inc.php
 out
 exemplo
-aulas
+aulas/config.json
