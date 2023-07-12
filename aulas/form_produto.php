@@ -15,6 +15,17 @@
             background-color: red;
             left:0;
         }
+        #retorno{
+            position: fixed;
+            top: 0;
+            right: 50px;
+            color: white;
+            font-size: 20px;
+            border: 1px solid lightblue;
+            background-color: darkblue;
+            opacity: 90%;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -37,6 +48,8 @@
             <button type="reset">Limpar</button>
         </div>
     </form>
+
+    <div id='retorno'></div>
 
     <br />
 
