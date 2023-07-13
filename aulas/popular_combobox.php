@@ -21,7 +21,7 @@ $sql = "SELECT `id`, `descricao` FROM escolaws.produtos";
 
 //declarar a variável que inicializa um combo.
 
-$combobox = "<select name='cmb_produtos'>";
+$combobox = "<select name='cmb_produtos' size='10'>";
 
 //vamos executar a consulta
 if ($result = mysqli_execute_query($conexao, $sql)) {

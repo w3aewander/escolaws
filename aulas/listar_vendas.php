@@ -26,10 +26,14 @@
     die('Falha na consulta: '. mysqli_error($conexao));
  }
 
+ $total_pagar = 0.0;
+
  $table = "<table cellpadding='4' cellspacing='4' rules='rows' width='600'>";
  $table .= "<thead><tr><th>ID</th><td>Cód.Produto</th><th>Produto</th><th>Preco</th><th>Qtde</th><th>Total</th></tr></thead>";
  $table .= "<tbody>";
 
+
+ //percorrendo o conjunto de resultados.
  while ( $row = mysqli_fetch_object($result)){
 
     $table .=  "<tr>
@@ -40,9 +44,18 @@
             <td>{$row->qtde}</td>
             <td align='end'>" . number_format($row->total,2,',','.') . "</td>
         </tr>";
+
+    $total_pagar += $row->total;
  }
 
  $table .= "</tbody>";
+
+ $table .= "<tfoot>
+               <tr>
+                  <th align='end' colspan='5'>Total a pagar:</th>
+                  <td align='end'>" . number_format($total_pagar,2, ',','.') . "</td>
+               </tr>
+           </tfoot>";
 
  $table .= "</table>";
 
